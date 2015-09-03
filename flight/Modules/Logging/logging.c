@@ -50,6 +50,8 @@
 #include "magnetometer.h"
 #include "manualcontrolcommand.h"
 #include "positionactual.h"
+#include "stabilizationdesired.h"
+#include "actuatordesired.h"
 #include "loggingsettings.h"
 #include "loggingstats.h"
 #include "velocityactual.h"
@@ -306,6 +308,8 @@ static void loggingTask(void *parameters)
 				UAVTalkSendObjectTimestamped(uavTalkCon, MagnetometerHandle(), 0, false, 0);
 				UAVTalkSendObjectTimestamped(uavTalkCon, ManualControlCommandHandle(), 0, false, 0);
 				UAVTalkSendObjectTimestamped(uavTalkCon, ActuatorCommandHandle(), 0, false, 0);
+				UAVTalkSendObjectTimestamped(uavTalkCon, ActuatorDesiredHandle(), 0, false, 0);
+				UAVTalkSendObjectTimestamped(uavTalkCon, StabilizationDesiredHandle(), 0, false, 0);
 			}
 
 			// Log slower
